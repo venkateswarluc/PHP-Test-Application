@@ -1,19 +1,19 @@
-
+name: CICD Pipeline
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
+jobs:
+
+  tests:
 
 
-laravel-tests:
+    runs-on: ubuntu-latest
 
 
-  runs-on: ubuntu-latest
-
-
-  steps:
+    steps:
     - uses: actions/checkout@v2
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
@@ -33,10 +33,10 @@ laravel-tests:
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
 
-build:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  steps:
+    steps:
 
     - name: Checkout
 
@@ -62,11 +62,11 @@ build:
 
 
 
-deploy:
+  deploy:
 
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  steps:
+    steps:
 
     - name: Checkout
 
