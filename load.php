@@ -1,5 +1,5 @@
 <?php
-ob_start()
+ob_start();
 header("Content-Type: text/javascript; charset=utf-8"); 
 ?>
 <div id="pjGasCalcContainer" class="container" style="display:none;">
